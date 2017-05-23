@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+
+"""
+# New style signal-slot connection PyQt5!!!
+# declaread signal:
+    signalName = QtCore.pyqtSignal([type name], [name="signalName"])
+# signal overloading
+    signalName = QtCore.pyqtSignal([[types name 1]], [[types name 2]], ... , [name="signalName"])
+# declaread slot:
+    [@QtCore.pyqtSlot([type name, ...], [name = None], [result = None])]
+    def slotName(self, [params]): pass
+
+# connection signal-slot^
+    self.signalName.connect(self.slotName)
+    self.signalName["type"].connect(self.slotName)
+# or if QtWidgets object
+    self.ui.WidgetObject.signalName.connect(self.slotName)
+    self.ui.WidgetObject.signalName["type"].connect(self.slotName)
+# where WidgetObject - is QtWidgets object
+
+# disconnection signal-slot:
+    self.signalName.disconnect(self.slotName)
+    self.signalName["type"].disconnect(self.slotName)
+# or of QtWidgets object
+    self.ui.WidgetObject.signalName.disconnect(self.slotName)
+    self.ui.WidgetObject.signalName["type"].disconnect(self.slotName)
+# where WidgetObject - is QtWidgets object
+
+# emit signals:
+    self.signalName.emit([data])
+    self.signalName["type"].emit([data])
+# or if QtWidgets object
+    self.ui.WidgetObject.signalName.emit([data])
+    self.ui.WidgetObject["type"].signalName.emit([data])
+# where WidgetObject - is QtWidgets object
+
+Constructur call:
+    super(BaseClass, self).__init__([parent])
+# or
+    BaseClass.__init__(self, [parent])
+"""
